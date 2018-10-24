@@ -1,0 +1,237 @@
+apply plugin: "com.android.application"
+
+import com.android.build.OutputFile
+
+/**
+ * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
+ * and bundleReleaseJsAndAssets).
+ * These basically call `react-native bundle` with the correct arguments during the Android build
+ * cycle. By default, bundleDebugJsAndAssets is skipped, as in debug/dev mode we prefer to load the
+ * bundle directly from the development server. Below you can see all the possible configurations
+ * and their defaults. If you decide to add a configuration block, make sure to add it before the
+ * `apply from: "../../node_modules/react-native/react.gradle"` line.
+ *
+ * project.ext.react = [
+ *   // the name of the generated asset file containing your JS bundle
+ *   bundleAssetName: "index.android.bundle",
+ *
+ *   // the entry file for bundle generation
+ *   entryFile: "index.android.js",
+ *
+ *   // whether to bundle JS and assets in debug mode
+ *   bundleInDebug: false,
+ *
+ *   // whether to bundle JS and assets in release mode
+ *   bundleInRelease: true,
+ *
+ *   // whether to bundle JS and assets in another build variant (if configured).
+ *   // See http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Variants
+ *   // The configuration property can be in the following formats
+ *   //         'bundleIn${productFlavor}${buildType}'
+ *   //         'bundleIn${buildType}'
+ *   // bundleInFreeDebug: true,
+ *   // bundleInPaidRelease: true,
+ *   // bundleInBeta: true,
+ *
+ *   // whether to disable dev mode in custom build variants (by default only disabled in release)
+ *   // for example: to disable dev mode in the staging build type (if configured)
+ *   devDisabledInStaging: true,
+ *   // The configuration property can be in the following formats
+ *   //         'devDisabledIn${productFlavor}${buildType}'
+ *   //         'devDisabledIn${buildType}'
+ *
+ *   // the root of your project, i.e. where "package.json" lives
+ *   root: "../../",
+ *
+ *   // where to put the JS bundle asset in debug mode
+ *   jsBundleDirDebug: "$buildDir/intermediates/assets/debug",
+ *
+ *   // where to put the JS bundle asset in release mode
+ *   jsBundleDirRelease: "$buildDir/intermediates/assets/release",
+ *
+ *   // where to put drawable resources / React Native assets, e.g. the ones you use via
+ *   // require('./image.png')), in debug mode
+ *   resourcesDirDebug: "$buildDir/intermediates/res/merged/debug",
+ *
+ *   // where to put drawable resources / React Native assets, e.g. the ones you use via
+ *   // require('./image.png')), in release mode
+ *   resourcesDirRelease: "$buildDir/intermediates/res/merged/release",
+ *
+ *   // by default the gradle tasks are skipped if none of the JS files or assets change; this means
+ *   // that we don't look at files in android/ or ios/ to determine whether the tasks are up to
+ *   // date; if you have any other folders that you want to ignore for performance reasons (gradle
+ *   // indexes the entire tree), add them here. Alternatively, if you have JS files in android/
+ *   // for example, you might want to remove it from here.
+ *   inputExcludes: ["android/**", "ios/**"],
+ *
+ *   // override which node gets called and with what additional arguments
+ *   nodeExecutableAndArgs: ["node"],
+ *
+ *   // supply additional arguments to the packager
+ *   extraPackagerArgs: []
+ * ]
+ */
+
+project.ext.react = [
+  entryFile: "index.js",
+  //  nodeExecutableAndArgs : ["/Users/liuyang/.nvm/versions/node/v9.3.0/bin/node"]
+]
+project.ext.vectoricons = [
+  iconFontNames: ['iconfont.ttf'] // Name of the font files you want to copy
+]
+
+apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
+
+/**
+ * Set this to true to create two separate APKs instead of one:
+ *   - An APK that only works on ARM devices
+ *   - An APK that only works on x86 devices
+ * The advantage is the size of the APK is reduced by about 4MB.
+ * Upload all the APKs to the Play Store and people will download
+ * the correct one based on the CPU architecture of their device.
+ */
+def enableSeparateBuildPerCPUArchitecture = false
+
+/**
+ * Run Proguard to shrink the Java bytecode in release builds.
+ */
+def enableProguardInReleaseBuilds = false
+
+android {
+  compileSdkVersion 26
+  buildToolsVersion "26.0.2"
+
+  defaultConfig {
+    applicationId "com.echoesnet.futures"
+    minSdkVersion 19
+    targetSdkVersion 25
+    versionCode 5
+    versionName "0.0.5"
+    ndk {
+      abiFilters "armeabi-v7a", "x86"
+    }
+    multiDexEnabled true
+  }
+//  dexOptions {
+//    javaMaxHeapSize "4g"
+//  }
+
+  sourceSets {
+    main {
+      //jni.srcDirs = []
+      //把java-gen文件夹下的java文件也归入srcDir中
+      java.srcDirs = ['src/main/java', 'src/main/java-gen']
+
+      //*注意：这几个 res-* 文件夹是特殊的，额外配置的，用来分类资源。
+      // names can't repeat in those groups;
+      res.srcDirs = [
+        'src/main/res-reactnative',
+        'src/main/res-pingpp',
+        'src/main/res'
+      ]
+      assets.srcDirs = [
+        'src/main/assets-pingpp',
+        'src/main/assets'
+      ]
+      jniLibs.srcDirs = ['libs']
+    }
+  }
+
+  splits {
+    abi {
+      reset()
+      enable enableSeparateBuildPerCPUArchitecture
+      universalApk false  // If true, also generate a universal APK
+      include "armeabi-v7a", "x86"
+    }
+  }
+  buildTypes {
+    release {
+      buildConfigField "String", "BASE_URL", "\"http://106.75.87.149:8080\""
+      minifyEnabled enableProguardInReleaseBuilds
+      proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+    }
+
+    debug {
+      // buildConfig Class
+      // http://106.75.50.97:8844 https://192.168.18.6:8001
+      buildConfigField "String", "BASE_URL", "\"https://192.168.10.32:8845\""
+    }
+  }
+  // applicationVariants are e.g. debug, release
+  applicationVariants.all { variant ->
+    variant.outputs.each { output ->
+      // For each separate APK per architecture, set a unique version code as described here:
+      // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
+      def versionCodes = ["armeabi-v7a": 1, "x86": 2]
+      def abi = output.getFilter(OutputFile.ABI)
+      if (abi != null) {  // null for the universal-debug, universal-release variants
+        output.versionCodeOverride =
+          versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
+      }
+    }
+  }
+}
+
+dependencies {
+  implementation project(':react-native-code-push')
+  implementation project(':appcenter-crashes')
+  implementation project(':appcenter-analytics')
+  implementation project(':appcenter')
+  implementation project(':react-native-device-info')
+  implementation project(':react-native-camera')
+  compile project(':pingpp-react-native')
+  implementation fileTree(dir: "libs", include: ["*.jar"])
+  implementation "com.android.support:animated-vector-drawable:26.1.0"
+  implementation "com.android.support:exifinterface:26.1.0"
+  implementation "com.android.support:appcompat-v7:26.1.0"
+  implementation "com.android.support:support-v4:26.1.0"
+  implementation 'com.android.support:recyclerview-v7:26.1.0'
+  implementation 'com.android.support:design:26.1.0'
+  implementation 'com.github.bumptech.glide:glide:4.1.1'
+  implementation 'me.iwf.photopicker:PhotoPicker:0.9.12@aar'
+
+//  implementation 'com.pingxx:pingpp-core:2.1.11' //必须添加
+//  implementation 'com.pingxx:pingpp-upacp:2.1.11' //使用银联支付时添加
+//
+////  implementation 'com.pingxx:pingpp-alipay:2.1.11' //使用支付宝时添加
+////  implementation 'com.pingxx:pingpp-wxpay:2.1.11' //使用微信支付时添加
+////  implementation 'com.pingxx:pingpp-bfb-sdk:2.1.11' // 使用百付宝时添加
+////  implementation 'com.pingxx:pingpp-qpay:2.1.11' //使用QQ钱包时添加
+////  implementation 'com.pingxx:pingpp-cmbwallet:2.1.11' // 使用招行一网通时添加
+
+  implementation "com.facebook.react:react-native:+"  // From node_modules
+}
+
+// Run this once to be able to run the application with BUCK
+// puts all compile dependencies into folder libs for BUCK to use
+task copyDownloadableDepsToLibs(type: Copy) {
+  from configurations.compile
+  into 'libs'
+}
+
+
+
+// start app through CLI for package.json
+task runAppDevDirect(type: Exec) {
+  description "Run app (dev env)"
+  android.applicationVariants.all { variant ->
+    commandLine getRunAppCommandLine(variant)
+  }
+}
+
+task runAppDev(type: Exec, dependsOn: 'installDebug') {
+  description "Install and run app (dev env)"
+  android.applicationVariants.all { variant ->
+    if ("installDebug".toUpperCase().endsWith(variant.getName().toUpperCase())) {
+      commandLine getRunAppCommandLine(variant)
+    }
+  }
+}
+
+def getRunAppCommandLine(variant) {
+  List<String> commandLine = ["adb", "shell", "am", "start", "-n", variant.getApplicationId() + "/.MainWithUpdateActivity"]
+  return commandLine
+}

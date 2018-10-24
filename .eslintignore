@@ -1,0 +1,9 @@
+/build/**
+/coverage/**
+/ios/**
+/android/**
+/docs/**
+/jsdoc/**
+/templates/**
+/tmp/**
+!.eslintrc.js

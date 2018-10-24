@@ -1,0 +1,11 @@
+{
+    "editor.formatOnSave": true,
+    "eslint.autoFixOnSave": true,
+    "files.associations": {
+        "*.jsx": "javascriptreact"
+    },
+    "javascript.format.enable": false,
+    "javascript.validate.enable": false,
+    "prettier.eslintIntegration": true,
+    "git.autofetch": true
+}

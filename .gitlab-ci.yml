@@ -1,0 +1,41 @@
+image: node:8.9.3
+
+stages:
+- prebuild
+- test
+- build
+- deploy
+
+cache:
+  paths:
+  - node_modules/
+
+before_script:
+  - npm install --no-package-lock
+
+lint:
+  stage: prebuild
+  script:
+    - npm run lint
+
+test-js:
+  stage: test
+  script:
+    - npm run coverage
+  environment:
+    name: testjs/$CI_COMMIT_REF_NAME
+  coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+
+# build:
+#   stage: build
+#   script:
+#     - npm run build:dev
+#   only:
+#     - master
+
+# deploy:
+#   stage: deploy
+#   script:
+#     - npm run deploy
+#   only:
+#     - master

@@ -1,0 +1,18 @@
+{
+  "presets": ["react-native"],
+  "plugins": [
+    "transform-exponentiation-operator",
+    "transform-react-constant-elements",
+    [
+      "module-resolver",
+      {
+        "extensions": [".js", ".ios.js", ".android.js"],
+        "alias": {
+          "futures": "./js"
+        },
+        "cwd": "babelrc"
+      }
+    ]
+  ],
+  "retainLines": true
+}

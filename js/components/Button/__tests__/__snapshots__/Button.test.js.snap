@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View
+      style={
+        Array [
+          Array [
+            Object {
+              "alignItems": "center",
+              "borderRadius": 8,
+              "height": 96,
+              "justifyContent": "center",
+              "marginLeft": 64,
+              "marginRight": 64,
+              "marginTop": 64,
+            },
+            Object {
+              "backgroundColor": "#e83b3b",
+            },
+            Object {},
+          ],
+          Object {
+            "overflow": "hidden",
+          },
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#ffffff",
+              "fontSize": 32,
+              "textAlign": "center",
+            },
+            Object {},
+          ]
+        }
+      >
+        确认平仓
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <View
+      style={
+        Array [
+          Array [
+            Object {
+              "alignItems": "center",
+              "borderRadius": 22,
+              "borderStyle": "solid",
+              "borderWidth": 0.5,
+              "height": 44,
+              "justifyContent": "center",
+            },
+            Object {
+              "backgroundColor": "#30BE4133",
+              "borderColor": "#30be41",
+            },
+            Object {
+              "height": 80,
+            },
+          ],
+          Object {
+            "overflow": "hidden",
+          },
+        ]
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "fontSize": 28,
+              "includeFontPadding": false,
+              "paddingLeft": 20,
+              "paddingRight": 20,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+            },
+            Object {
+              "color": "#30be41",
+            },
+            Object {
+              "color": "#ccc",
+            },
+          ]
+        }
+      >
+        交割中
+      </Text>
+    </View>
+  </View>
+</View>
+`;

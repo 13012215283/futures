@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderRadius": 8,
+      "height": 140,
+      "justifyContent": "center",
+      "marginTop": 32,
+      "width": "100%",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=49366202,632101467&fm=27&gp=0.jpg",
+      }
+    }
+    style={
+      Object {
+        "height": 140,
+        "width": 140,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders correctly without set any child 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "borderRadius": 8,
+      "height": 140,
+      "justifyContent": "center",
+      "marginTop": 32,
+      "width": "100%",
+    }
+  }
+/>
+`;

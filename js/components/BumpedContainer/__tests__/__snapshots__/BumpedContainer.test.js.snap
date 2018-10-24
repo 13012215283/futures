@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BumpedContainer renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "position": "absolute",
+        "width": "100%",
+      },
+      Object {
+        "top": 45,
+      },
+      false,
+    ]
+  }
+>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      test
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`if set property novalue, it render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "position": "absolute",
+        "width": "100%",
+      },
+      Object {
+        "top": 0,
+      },
+      false,
+    ]
+  }
+>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+    >
+      test
+    </Text>
+  </View>
+</View>
+`;

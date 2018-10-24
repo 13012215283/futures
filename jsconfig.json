@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "futures/*": [
+                "./js/*"
+            ]
+        }
+    },
+    "exclude": [
+        "android",
+        "ios",
+        "assets",
+        "coverage",
+        "node_modules"
+    ]
+}

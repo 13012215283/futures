@@ -1,0 +1,297 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly 1`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+    }
+  }
+>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#rgba(232,59,59,0.2)",
+          "borderColor": "#e83b3b",
+          "borderWidth": 1,
+          "height": 60,
+          "justifyContent": "center",
+          "width": 60,
+        },
+        null,
+      ]
+    }
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#e83b3b",
+            "fontSize": 32,
+            "textAlign": "center",
+          },
+          null,
+        ]
+      }
+    >
+      -
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "marginLeft": 14,
+          "marginRight": 14,
+        },
+        Object {},
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      inputStyle={Object {}}
+      keyboardType="numeric"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="请输入"
+      style={
+        Array [
+          Object {
+            "borderColor": "#bdbdbd",
+            "borderWidth": 0.5,
+            "color": "#212121",
+            "fontSize": 28,
+            "height": 60,
+            "padding": 0,
+            "textAlign": "center",
+            "width": 250,
+          },
+          Object {},
+        ]
+      }
+      thousandSeparator=","
+      type="money"
+      underlineColorAndroid="transparent"
+      value={undefined}
+    />
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#rgba(232,59,59,0.2)",
+          "borderColor": "#e83b3b",
+          "borderWidth": 1,
+          "height": 60,
+          "justifyContent": "center",
+          "width": 60,
+        },
+        null,
+      ]
+    }
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#e83b3b",
+            "fontSize": 32,
+            "textAlign": "center",
+          },
+          null,
+        ]
+      }
+    >
+      +
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`render correctly 2`] = `
+<View
+  style={
+    Object {
+      "flexDirection": "row",
+    }
+  }
+>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#rgba(232,59,59,0.2)",
+          "borderColor": "#e83b3b",
+          "borderWidth": 1,
+          "height": 60,
+          "justifyContent": "center",
+          "width": 60,
+        },
+        Object {
+          "backgroundColor": "rgba(189,189,189,0.2)",
+          "borderColor": "#bdbdbd",
+          "borderWidth": 1,
+        },
+      ]
+    }
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#e83b3b",
+            "fontSize": 32,
+            "textAlign": "center",
+          },
+          Object {
+            "color": "#757575",
+          },
+        ]
+      }
+    >
+      -
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "marginLeft": 14,
+          "marginRight": 14,
+        },
+        Object {},
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      editable={true}
+      inputStyle={Object {}}
+      keyboardType="numeric"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="请输入"
+      style={
+        Array [
+          Object {
+            "borderColor": "#bdbdbd",
+            "borderWidth": 0.5,
+            "color": "#212121",
+            "fontSize": 28,
+            "height": 60,
+            "padding": 0,
+            "textAlign": "center",
+            "width": 250,
+          },
+          Object {},
+        ]
+      }
+      thousandSeparator=","
+      type="money"
+      underlineColorAndroid="transparent"
+      value="1"
+    />
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#rgba(232,59,59,0.2)",
+          "borderColor": "#e83b3b",
+          "borderWidth": 1,
+          "height": 60,
+          "justifyContent": "center",
+          "width": 60,
+        },
+        null,
+      ]
+    }
+    testID={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#e83b3b",
+            "fontSize": 32,
+            "textAlign": "center",
+          },
+          null,
+        ]
+      }
+    >
+      +
+    </Text>
+  </View>
+</View>
+`;

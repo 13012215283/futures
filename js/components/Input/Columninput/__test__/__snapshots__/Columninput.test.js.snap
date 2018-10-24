@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "borderBottomColor": "#e0e0e0",
+      "borderBottomWidth": 1,
+      "flexDirection": "column",
+      "height": 50,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    onChange={[Function]}
+    onChangeText={[Function]}
+    placeholder="请输入姓名"
+    placeholderTextColor="#bdbdbd"
+    style={
+      Object {
+        "paddingBottom": 3,
+        "paddingLeft": 5,
+      }
+    }
+    underlineColorAndroid="transparent"
+  />
+</View>
+`;

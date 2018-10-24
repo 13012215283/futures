@@ -1,0 +1,97 @@
+{
+  "name": "futures",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "android-shake": "adb shell input keyevent 82",
+    "android-reverse-8081": "adb reverse tcp:8081 tcp:8081",
+    "android-run-dev": "cd ./android && ./gradlew runAppDevDirect",
+    "android-install-run-dev": "cd ./android && ./gradlew runAppDev",
+    "android-push-bundle-sd": "./scripts/android-push-bundle-sd.sh",
+    "android-create-bundle-assets": "./scripts/android-create-bundle-assets.sh",
+    "ios-assets:clean": "rm -rf ./ios/futures/Assets/ReactResources/assets",
+    "ios-chart:clean": "rm -rf ./ios/futures/Assets/HTMLResources/candlestickChart",
+    "ios-chart:copy": "cp -r ./candlestick-chart/build ./ios/futures/Assets/HTMLResources/candlestickChart",
+    "ios-create-bundle-assets": "./scripts/ios-create-bundle-assets.sh",
+    "ios-archive-release-dev": "./scripts/ios-archive-release.sh",
+    "ios-archive-debug-dev": "./scripts/ios-archive-debug.sh",
+    "ios-archive-appstore": "./scripts/ios-archive-appstore.sh",
+    "ios-auto-create": "./scripts/chart-check.sh && yarn ios-chart:clean && yarn ios-chart:copy && yarn ios-create-bundle-assets",
+    "ios-auto-archive-release": "yarn ios-auto-create && ./scripts/ios-archive-release.sh",
+    "ios-auto-archive-debug": "yarn ios-auto-create && ./scripts/ios-archive-debug.sh",
+    "ios-auto-archive-appstore": "yarn ios-auto-create && ./scripts/ios-archive-appstore.sh",
+    "ios-codePush-release-dev": "appcenter codepush release-react --development -a futures/futures -b index.ios.bundle",
+    "lint": "eslint ./js --color",
+    "test": "jest ./js",
+    "coverage": "jest ./js --silent --coverage",
+    "chart:build": "cd candlestick-chart && yarn build",
+    "chart:clean": "cd candlestick-chart && yarn clean"
+  },
+  "dependencies": {
+    "appcenter": "^1.1.0",
+    "appcenter-analytics": "^1.1.0",
+    "appcenter-crashes": "^1.1.0",
+    "axios": "^0.18.0",
+    "color-string": "^1.5.2",
+    "fast-deep-equal": "^1.0.0",
+    "invariant": "^2.2.2",
+    "pingpp-react-native": "^1.0.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-native": "^0.52.2",
+    "react-native-camera": "^0.13.0",
+    "react-native-code-push": "^5.2.1",
+    "react-native-device-info": "0.21.0",
+    "react-native-pie-chart": "^1.0.13",
+    "react-native-root-toast": "^3.0.0",
+    "react-native-swiper": "^1.5.13",
+    "react-native-vector-icons": "^4.4.3",
+    "react-navigation": "^1.5.2",
+    "warning": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "babel-jest": "^22.1.0",
+    "babel-plugin-module-resolver": "^3.0.0",
+    "babel-plugin-transform-exponentiation-operator": "^6.24.1",
+    "babel-plugin-transform-react-constant-elements": "^6.23.0",
+    "babel-preset-react-native": "^4.0.0",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-import-resolver-babel-module": "^4.0.0",
+    "eslint-plugin-flowtype": "^2.40.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.4.0",
+    "eslint-plugin-react": "^7.4.0",
+    "jest": "^22.1.4",
+    "prettier": "^1.9.2",
+    "prettier-eslint": "^8.3.1",
+    "react-native-cli": "^2.0.1",
+    "react-test-renderer": "^16.2.0"
+  },
+  "jest": {
+    "preset": "react-native",
+    "setupFiles": [
+      "./jest.setup.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-navigation)"
+    ],
+    "collectCoverageFrom": [
+      "js/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!js/containers/**",
+      "!**/vendor/**"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`</FooterItem/> renders correctly 1`] = `
+<View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    onPress={[Function]}
+    style={
+      Object {
+        "color": "#0040ff",
+        "fontSize": 24,
+      }
+    }
+  >
+    忘记密码
+  </Text>
+</View>
+`;
+
+exports[`</FooterItem/> renders correctly as separator 1`] = `
+<View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    onPress={[Function]}
+    style={
+      Object {
+        "margin": 32,
+      }
+    }
+  >
+    |
+  </Text>
+</View>
+`;
+
+exports[`renders correctly as separator 1`] = `
+<View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    onPress={[Function]}
+    style={
+      Object {
+        "margin": 32,
+      }
+    }
+  >
+    |
+  </Text>
+</View>
+`;

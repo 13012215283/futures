@@ -1,0 +1,8 @@
+/build/
+/Pods/
+.DS_Store
+Podfile.lock
+futures.xcworkspace
+/futures.xcworkspace/
+
+

@@ -1,0 +1,83 @@
+source 'https://github.com/CocoaPods/Specs.git'
+react_native_path = '../node_modules/react-native'
+
+platform :ios, '9.0'
+use_frameworks!
+
+target 'futures' do
+    #原生库
+    pod 'SnapKit',         '~> 4.0.0' #布局
+    pod 'Alamofire',       '~> 4.5' #网络请求基础库
+#    pod 'Pingpp/UnionPay', '~> 2.2.20' #ping++银联支付
+    #    pod 'Zip', '~> 1.1' #zip工具
+    
+    
+    #配置react-native库
+    pod 'RNDeviceInfo',        :path => '../node_modules/react-native-device-info'
+    pod 'RNVectorIcons',       :path => '../node_modules/react-native-vector-icons' #字体图标库
+    pod 'react-native-camera',  path:   '../node_modules/react-native-camera'
+    pod 'CodePush',            :path => '../node_modules/react-native-code-push'    #热更新
+    pod 'AppCenter'
+    
+    pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'Core',
+    'CxxBridge',
+    'DevSupport',
+    'RCTText',
+    'RCTNetwork',
+    'RCTWebSocket',
+    'ART',
+    'RCTActionSheet',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTPushNotification',
+    'RCTSettings',
+    'RCTVibration',
+    'RCTLinkingIOS',
+    'RCTAnimation',
+    'RCTCameraRoll'
+    ]
+    pod "yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
+    
+    pod 'DoubleConversion', :podspec => react_native_path + '/third-party-podspecs/DoubleConversion.podspec'
+    pod 'GLog',             :podspec => react_native_path + '/third-party-podspecs/GLog.podspec'
+    pod 'Folly',            :podspec => react_native_path + '/third-party-podspecs/Folly.podspec'
+end
+
+def remove_unused_yoga_headers
+    filepath = './Pods/Target Support Files/yoga/yoga-umbrella.h'
+    
+    contents = []
+    
+    file = File.open(filepath, 'r')
+    file.each_line do | line |
+        contents << line
+    end
+    file.close
+    
+    contents.delete_at(14) # #import "YGNodePrint.h"
+    contents.delete_at(14) # #import "Yoga-internal.h"
+    
+    file = File.open(filepath, 'w') do |f|
+        f.puts(contents)
+    end
+end
+
+post_install do |installer|
+    
+    remove_unused_yoga_headers
+    
+    installer.pods_project.targets.each do |target|
+        if target.name == 'yoga'
+            target.build_configurations.each do |config|
+                config.build_settings['GCC_TREAT_WARNINGS_AS_ERRORS'] = 'NO'
+                config.build_settings['GCC_WARN_64_TO_32_BIT_CONVERSION'] = 'NO'
+            end
+        end
+        if target.name == "RNSVG"
+            target.build_configurations.each do |config|
+                config.build_settings['GCC_NO_COMMON_BLOCKS'] = 'NO'
+            end
+        end
+    end
+end
